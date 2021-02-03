@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+  </head>
+
+  <body>
+    <script type="text/javascript" src="main.js"></script>
+    <div class="row">
+      <div class="column">
+        Money: <span class="money"></span><br>
+				Determination: <span class= "determination"></span>
+        <span style="display:none" class="show_shovel">Shovel Level: <span class="shovel"></span></span>
+        <span style="display:none" class="show_prisonmate">Prisonmates: <span class="prisonmate"></span></span>
+        <span style="display:none" class="show_prisonmate_shovel">Prisonmate Shovel Level: <span class="prisonmate_shovel"></span></span>
+      </div>
+      <div class="column">
+        <button onClick="dig(1)">Dig!</button>
+				<button onClick="hide(1)">Hide!</button>
+        <button style="display:none" class="show_shovel" onClick="upgradeShovel(1)">Upgrade Shovel: $<span class="shovel_cost"></span></button>
+        <button style="display:none" class="show_prisonmate" onClick="hirePrisonmate(1)">Hire Prisonmate: $<span class="prisonmate_cost"></span></button>
+        <button style="display:none" class="show_prisonmate" onClick="upgradePrisonmateShovel(1)">Upgrade Prisonmates' Shovels: $<span class="prisonmate_shovel_cost"></span></button>
+      </div>
+    </div>
+  </body>
+
+</html>
