@@ -1,0 +1,29 @@
+body {
+  // background-color: gray;
+  background-image: url("https://media.freestocktextures.com/cache/d2/d9/d2d90e0e3b0efde930968273f904d314.jpg");
+  background-size: auto;
+}
+
+button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #e7e7e7;
+}
+
+button:active {
+  background-color: gold;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
