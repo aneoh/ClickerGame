@@ -36,11 +36,12 @@ var unlocks = {
 
 function dig(num) {
   resources.money += num * resources.shovel
+	//randomize warden appearance while slowly decrementing determination.
+	// too long before click then ose money
+	wardenAppearance()
   updateText()
 }
-function hide(num){
 
-}
 
 function upgradePrisonmateShovel(num) {
   if (resources.money >= costs.prisonmate_shovel * num) {
@@ -83,7 +84,14 @@ function hirePrisonmate(num) {
   }
 }
 
+function wardenAppearance(){
+	document.getElementById("hideTools").style.visibility = "visible"
+	document.getElementById("hideTools").innerHTML = '<button onClick = "hide()">Hide Tools!</button>'
 
+}
+function hide(){
+	document.getElementById("hideTools").style.visibility = "hidden"
+}
 
 function updateText() {
   for (var key in unlocks) {
