@@ -1,15 +1,20 @@
 var timer = 256
 var tickRate = 16
+var tickRate2 = 128
 var visualRate = 256
 var warden = false
 
-var detGrowth = 1.25
+var startTime, endTime;
+
+var detGrowth = .1
+var detDecrease = .001
 
 
 var resources = {
   "money": 0,
 	"determination" : 20,
-  "shovel": 1
+  "shovel": 1,
+  "prisonmate": 0
 }
 var costs = {
   "shovel": 15,
@@ -41,8 +46,10 @@ var unlocks = {
 
 function dig(num) {
   resources.money += num * resources.shovel
-	//randomize warden appearance while slowly decrementing determination.
-	// too long before click then ose money
+  if(!warden){
+    resources.determination += detGrowth
+  }
+
   updateText()
 }
 
@@ -71,15 +78,12 @@ function upgradeShovel(num) {
 
 function hirePrisonmate(num) {
   if (resources.money >= costs.prisonmate * num) {
-    if (!resources.prisonmate) {
-      resources.prisonmate = 0
-    }
     if (!resources.prisonmate_shovel) {
       resources.prisonmate_shovel = 1
     }
     resources.prisonmate += num
     resources.money -= num * costs.prisonmate
-
+    detGrowth += resources.prisonmate/100
     costs.prisonmate *= growthRate.prisonmate
 
     updateText()
@@ -89,21 +93,25 @@ function hirePrisonmate(num) {
 }
 
 function wardenAppearance(){
+  startTime = Date.now()
 	document.getElementById("hideTools").style.display = "block"
 	warden = true
-	var t0 = performance.now()
 	document.getElementById("hideTools").innerHTML = '<button onClick = "hide()">Hide Tools!</button>'
-	var t1 = performance.now()
-	updateDetermination()
 }
 
 function hide(){
+  endTime = Date.now()
 	document.getElementById("hideTools").style.display = "none"
 	warden = false
-}
 
-function updateDetermination(num){
+  var elapsed_time = endTime - startTime
+  if (elapsed_time > 5000 && resources.prisonmate > 0){
+      resources.prisonmate -= 1
+      // resources.determination -= 3
+      resources.determiniation -= resources.determiniation * .10
 
+      resources.shovel -= 1
+  }
 }
 
 function updateText() {
@@ -131,8 +139,9 @@ function updateText() {
   }
 
   var x = Math.floor((Math.random() * 100) + 1)
-  if(x == 5 && !warden){
+  if(x == 5 && !warden && resources.money > 0){
     wardenAppearance()
+    // If statement to see if a certain amount of time has passed.
   }
 }
 
@@ -150,11 +159,12 @@ window.setInterval(function() {
     if (total) {
       console.log(total)
       resources[increment.output] += total / tickRate
+      resources[increment.output] += total / tickRate2
     }
   }
 
 	if(warden){
-		resources.determination -= 0.5
+		resources.determination -= detDecrease
 	}
 
   if (timer > visualRate) {
