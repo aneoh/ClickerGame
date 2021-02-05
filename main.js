@@ -1,9 +1,14 @@
 var timer = 256
 var tickRate = 16
 var visualRate = 256
+var warden = false
+
+var detGrowth = 1.25
+
+
 var resources = {
   "money": 0,
-	"determination" : 0,
+	"determination" : 20,
   "shovel": 1
 }
 var costs = {
@@ -38,7 +43,6 @@ function dig(num) {
   resources.money += num * resources.shovel
 	//randomize warden appearance while slowly decrementing determination.
 	// too long before click then ose money
-	wardenAppearance()
   updateText()
 }
 
@@ -85,12 +89,21 @@ function hirePrisonmate(num) {
 }
 
 function wardenAppearance(){
-	document.getElementById("hideTools").style.visibility = "visible"
+	document.getElementById("hideTools").style.display = "block"
+	warden = true
+	var t0 = performance.now()
 	document.getElementById("hideTools").innerHTML = '<button onClick = "hide()">Hide Tools!</button>'
-
+	var t1 = performance.now()
+	updateDetermination()
 }
+
 function hide(){
-	document.getElementById("hideTools").style.visibility = "hidden"
+	document.getElementById("hideTools").style.display = "none"
+	warden = false
+}
+
+function updateDetermination(num){
+
 }
 
 function updateText() {
@@ -116,6 +129,11 @@ function updateText() {
       element.innerHTML = costs[key].toFixed(2)
     }
   }
+
+  var x = Math.floor((Math.random() * 100) + 1)
+  if(x == 5 && !warden){
+    wardenAppearance()
+  }
 }
 
 
@@ -134,6 +152,10 @@ window.setInterval(function() {
       resources[increment.output] += total / tickRate
     }
   }
+
+	if(warden){
+		resources.determination -= 0.5
+	}
 
   if (timer > visualRate) {
     timer -= visualRate
