@@ -1,26 +1,113 @@
 body {
-  background-color: #656ffc;
-}
-button {
-  background-color: #FFFFFF;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+background: linear-gradient(to left, #0066eb 28%, #871c41 89%);
+
+
 }
 
+/*p {background: linear-gradient(1deg, rgba(0, 123, 237, 0.57), rgba(245, 210, 87, 0.47));
+  width: 100px;
+  }*/
+
+button{
+  box-shadow: 3px 4px 0px 0px #8a2a21;
+  background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius:18px;
+  border:1px solid #d02718;
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Arial;
+  font-size:17px;
+  padding:7px 25px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #810e05;
+  margin-bottom: .5cm;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+button[name="default"]{
+  box-shadow: 3px 4px 0px 0px #093f80;
+  background:linear-gradient(to bottom, #5920c4 5%, #b338f0 100%);
+  background-color:#5920c4;
+  border-radius:18px;
+  border:1px solid #d02718;
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Arial;
+  font-size:17px;
+  padding:7px 25px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #810e05;
+  margin-bottom: .5cm;
+  -webkit-animation: glowing 0ms infinite;
+  -moz-animation: glowing 0ms infinite;
+  -o-animation: glowing 0ms infinite;
+  animation: glowing 0ms infinite;
+}
+
+button[name="dig"]{
+  box-shadow: 3px 4px 0px 0px #093f80;
+  background:linear-gradient(to bottom, #5920c4 5%, #b338f0 100%);
+  background-color:#5920c4;
+  border-radius:18px;
+  border:1px solid #d02718;
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Arial;
+  font-size:17px;
+  padding:7px 25px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #810e05;
+  margin-top: 1cm;
+  margin-bottom: .5cm;
+  -webkit-animation: glowing 0ms infinite;
+  -moz-animation: glowing 0ms infinite;
+  -o-animation: glowing 0ms infinite;
+  animation: glowing 0ms infinite;
+}
+
+
 button:hover {
-  background-color: #e7e7e7;
+  background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color:#f24437;
 }
 
 button:active {
-  background-color: #ececec;
+  position:relative;
+  top:1px;
 }
 
 .column {
   float: left;
   width: 50%;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
 }

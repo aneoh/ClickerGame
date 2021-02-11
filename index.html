@@ -2,34 +2,32 @@
 <html>
 
   <head>
-    <link rel="stylesheet" type="text/css" href="interface.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
   </head>
 
   <style>
-    #hideTools {
-      background-color: red;
-      width: 40%;
-      text-align: center;
-      margin-top: 20px;
-    }
+
   </style>
 
   <body>
     <script type="text/javascript" src="main.js"></script>
     <div class="row">
       <div class="column">
-        <span style="background-color: #FFFF00">Pesos: <span class="money"></span><br>
-        <span style="background-color: Teal"> Determination: <span class="determination"></span>
+        <p>
+        <span style="background: linear-gradient(1deg, rgba(0, 123, 237, 0.57), rgba(245, 210, 87, 0.47))">Pesos: <span class="money"></span><br>
+      </p><p>
+        <span style="background-color: Teal"> Determination: <span class="determination"></span> </p>
         <span style="display:none" class="show_shovel">Shovel Level: <span class="shovel"></span></span>
         <span style="display:none" class="show_prisonmate">Prisonmates: <span class="prisonmate"></span></span>
         <span style="display:none" class="show_prisonmate_shovel">Prisonmate Shovel Level: <span class="prisonmate_shovel"></span></span>
       </div>
       <div class="column">
-        <button onClick="dig(1)">Dig!</button>
-				<span id = "hideTools"></span>
-        <button style="display:none" class="show_shovel" onClick="upgradeShovel(1)">Upgrade Shovel: $<span class="shovel_cost"></span></button>
-        <button style="display:none" class="show_prisonmate" onClick="hirePrisonmate(1)">Hire Prisonmate: $<span class="prisonmate_cost"></span></button>
-        <button style="display:none" class="show_prisonmate" onClick="upgradePrisonmateShovel(1)">Upgrade Prisonmates' Shovels: $<span class="prisonmate_shovel_cost"></span></button>
+        <button name="dig" onClick="dig(1)">Dig!</button>
+				<span name="hidden" id = "hideTools"></span>
+        <button style="display:none" class="show_shovel" name="default" onClick="upgradeShovel(1)">Upgrade Shovel: $<span class="shovel_cost"></span></button>
+        <button style="display:none" class="show_prisonmate" name="default" onClick="hirePrisonmate(1)">Hire Prisonmate: $<span class="prisonmate_cost"></span></button>
+        <button style="display:none" class="show_prisonmate" name="default" onClick="upgradePrisonmateShovel(1)">Upgrade Prisonmates' Shovels: $<span class="prisonmate_shovel_cost"></span></button>
       </div>
     </div>
   </body>
