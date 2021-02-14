@@ -9,7 +9,7 @@ const progressBarFull = document.getElementById('progressBarFull');
 
 var startTime, endTime;
 
-var detGrowth = .02
+var detGrowth = .015
 var detDecrease = .001
 
 var digTools = ["",
