@@ -1,35 +1,117 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-
   </head>
-
   <style>
-
   </style>
-
   <body>
-    <script type="text/javascript" src="main.js"></script>
-    <div class="row">
-      <div class="column">
-        <p>
-        <span style="background: linear-gradient(1deg, rgba(0, 123, 237, 0.57), rgba(245, 210, 87, 0.47))">Pesos: <span class="money"></span><br>
-      </p><p>
-        <span style="background-color: Teal"> Determination: <span class="determination"></span> </p>
-        <span style="display:none" class="show_shovel">Shovel Level: <span class="shovel"></span></span>
-        <span style="display:none" class="show_prisonmate">Prisonmates: <span class="prisonmate"></span></span>
-        <span style="display:none" class="show_prisonmate_shovel">Prisonmate Shovel Level: <span class="prisonmate_shovel"></span></span>
+    <div class="block"></block>
+    <div id="SplashScreen">
+      <h1>Guantánamo - Prison Break
+      </h1> 
+      <button name="start" onclick="showcanvas()">Start Game
+      </button>
+      <p class="Rule1" align=justify style="background-color:#02f3e5;
+                                            border-radius:2px;
+                                            font-size:16px;
+                                            padding:10px;
+                                            margin:5px;">
+        <b>
+          * Reach 100% determination to escape from prison!
+        </b>
+      </p>
+      <p class="Rule2" align=justify style="background-color:#9adad6;
+                                            border-radius:4px;
+                                            font-size:16px;
+                                            padding:10px;
+                                            margin:5px;">
+        <b>
+          * Earn $ and deterimantion everytime you dig for freedom. Earn more for each prisonmate and upgrade tool.
+        </b>
+      </p>
+      <p class="Rule3" align=justify style="background-color:#02f3e5;
+                                            border-radius:4px;
+                                            font-size:16px;
+                                            padding:10px;
+                                            margin:5px;">
+        <b>
+          * You lose determination when the warden shows: Protect your prisonmates!
+        </b>
+      </p>
+      <p class="Rule4" align=justify style="background-color:#9adad6;
+                                            border-radius:4px;
+                                            font-size:16px;
+                                            padding:10px;
+                                            margin:5px;">
+        <b>
+          * You'll be sent to Solitary Confinement at 0% determination: GAME OVER! 
+        </b>
+      </p>
+      <p class="Rule5" align=justify style="background-color:#9adad6;
+                                            border-radius:4px;
+                                            font-size:16px;
+                                            padding:10px;
+                                            margin:5px;">
+        <b>
+          (Take longer than 5 seconds to protect your prison mates and the warden will take ALL of your prisonmates and tools ) 
+        </b>
+      </p>
+    </div>
+    <script type="text/javascript" src="main.js">
+    </script>
+    <div id="GameCanvas" style="display: none">
+      <div class="container">
+        <div id="progressBar">
+          <div id="progressBarFull" class="determination">
+          </div>     
+        </div>
       </div>
-      <div class="column">
-        <button name="dig" onClick="dig(1)">Dig!</button>
-				<span name="hidden" id = "hideTools"></span>
-        <button style="display:none" class="show_shovel" name="default" onClick="upgradeShovel(1)">Upgrade Shovel: $<span class="shovel_cost"></span></button>
-        <button style="display:none" class="show_prisonmate" name="default" onClick="hirePrisonmate(1)">Hire Prisonmate: $<span class="prisonmate_cost"></span></button>
-        <button style="display:none" class="show_prisonmate" name="default" onClick="upgradePrisonmateShovel(1)">Upgrade Prisonmates' Shovels: $<span class="prisonmate_shovel_cost"></span></button>
+      <div class="row">
+        <div class="Currency">
+          <p class="Currency">
+            Pesos: 
+              <span class="money">
+              </span>
+              <br>
+              </p>
+          <p class="Currency">
+            Determination: 
+              <span class="determination"></span>
+              </span> 
+              </p>
+            <span style="display:none" class="show_tool">Current Tool: 
+              <span class="tool">
+              </span>
+            </span>
+            <span style="display:none" class="show_prisonmate">Prisonmates: 
+              <span class="prisonmate">
+              </span>
+            </span>
+            <span style="display:none" class="show_prisonmate_tool">Prisonmate Tool Level: 
+              <span class="prisonmate_tool">
+              </span>
+            </span>
+        <div class="column">
+          <button name="dig" onClick="dig(1)">Dig!
+          </button>
+          <span name="hidden" id = "hideTools">
+          </span>
+          <button style="display:none" class="show_tool" name="default" onClick="upgradeTool(1)">Upgrade Tool: $
+            <span class="tool_cost">
+            </span>
+          </button>
+          <button style="display:none" class="show_prisonmate" name="default" onClick="hirePrisonmate(1)">Hire Prisonmate: $
+            <span class="prisonmate_cost">
+            </span>
+          </button>
+          <button style="display:none" class="show_prisonmate" name="default" onClick="upgradePrisonmateTool(1)">Upgrade Prisonmates' Tools: $
+            <span class="prisonmate_tool_cost">
+            </span>
+          </button>
+        </div>
       </div>
     </div>
+    </div>
   </body>
-
 </html>
